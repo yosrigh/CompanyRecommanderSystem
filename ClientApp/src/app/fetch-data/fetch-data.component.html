@@ -1,0 +1,19 @@
+<div class="container p-3 my-3 border">
+</div>
+
+<p *ngIf="!countries"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="countries">
+  <thead>
+    <tr>
+      <th>countryName</th>
+      <th>countryShortCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countries">
+      <td>{{ country.countryName }}</td>
+      <td>{{ country.countryShortCode }}</td>
+    </tr>
+  </tbody>
+</table>
