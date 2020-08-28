@@ -494,40 +494,6 @@
     ]
   },
   {
-    "countryName": "Andorra",
-    "countryShortCode": "AD",
-    "regions": [
-      {
-        "name": "Andorra la Vella",
-        "shortCode": "07"
-      },
-      {
-        "name": "Canillo",
-        "shortCode": "02"
-      },
-      {
-        "name": "Encamp",
-        "shortCode": "03"
-      },
-      {
-        "name": "Escaldes-Engordany",
-        "shortCode": "08"
-      },
-      {
-        "name": "La Massana",
-        "shortCode": "04"
-      },
-      {
-        "name": "Ordino",
-        "shortCode": "05"
-      },
-      {
-        "name": "Sant Julià de Lòria",
-        "shortCode": "06"
-      }
-    ]
-  },
-  {
     "countryName": "Angola",
     "countryShortCode": "AO",
     "regions": [
@@ -696,16 +662,6 @@
       {
         "name": "West Cay",
         "shortCode": "22"
-      }
-    ]
-  },
-  {
-    "countryName": "Antarctica",
-    "countryShortCode": "AQ",
-    "regions": [
-      {
-        "name": "Antarctica",
-        "shortCode": "AQ"
       }
     ]
   },
@@ -1926,24 +1882,6 @@
       {
         "name": "Tarija",
         "shortCode": "T"
-      }
-    ]
-  },
-  {
-    "countryName": "Bonaire, Sint Eustatius and Saba",
-    "countryShortCode": "BQ",
-    "regions": [
-      {
-        "name": "Bonaire",
-        "shortCode": "BO"
-      },
-      {
-        "name": "Saba Isand",
-        "shortCode": "SA"
-      },
-      {
-        "name": "Sint Eustatius",
-        "shortCode": "SE"
       }
     ]
   },
@@ -3858,16 +3796,6 @@
       {
         "name": "Villa Clara",
         "shortCode": "05"
-      }
-    ]
-  },
-  {
-    "countryName": "Curaçao",
-    "countryShortCode": "CW",
-    "regions": [
-      {
-        "name": "Curaçao",
-        "shortCode": "CW"
       }
     ]
   },
@@ -13764,15 +13692,6 @@
     ]
   },
   {
-    "countryName": "Sint Maarten (Dutch part)",
-    "countryShortCode": "SX",
-    "regions": [
-      {
-        "name": "Sint Maarten"
-      }
-    ]
-  },
-  {
     "countryName": "Slovakia",
     "countryShortCode": "SK",
     "regions": [
@@ -14833,52 +14752,6 @@
       },
       {
         "name": "Traversay Islands"
-      }
-    ]
-  },
-  {
-    "countryName": "South Sudan",
-    "countryShortCode": "SS",
-    "regions": [
-      {
-        "name": "Central Equatoria",
-        "shortCode": "CE"
-      },
-      {
-        "name": "Eastern Equatoria",
-        "shortCode": "EE"
-      },
-      {
-        "name": "Jonglei",
-        "shortCode": "JG"
-      },
-      {
-        "name": "Lakes",
-        "shortCode": "LK"
-      },
-      {
-        "name": "Northern Bahr el Ghazal",
-        "shortCode": "BN"
-      },
-      {
-        "name": "Unity",
-        "shortCode": "UY"
-      },
-      {
-        "name": "Upper Nile",
-        "shortCode": "NU"
-      },
-      {
-        "name": "Warrap",
-        "shortCode": "WR"
-      },
-      {
-        "name": "Western Bahr el Ghazal",
-        "shortCode": "BW"
-      },
-      {
-        "name": "Western Equatoria",
-        "shortCode": "EW"
       }
     ]
   },
@@ -18959,32 +18832,6 @@
       {
         "name": "Wallis",
         "shortCode": "WAL"
-      }
-    ]
-  },
-  {
-    "countryName": "Western Sahara",
-    "countryShortCode": "EH",
-    "regions": [
-      {
-        "name": "Es Smara",
-        "shortCode": "ESM"
-      },
-      {
-        "name": "Boujdour",
-        "shortCode": "BOD"
-      },
-      {
-        "name": "Laâyoune",
-        "shortCode": "LAA"
-      },
-      {
-        "name": "Aousserd",
-        "shortCode": "AOU"
-      },
-      {
-        "name": "Oued ed Dahab",
-        "shortCode": "OUD"
       }
     ]
   },

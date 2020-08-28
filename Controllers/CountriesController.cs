@@ -22,6 +22,7 @@ namespace CompanyRecommanderSystem.Controllers
             {
                 string json = r.ReadToEnd();
                 countries = JsonConvert.DeserializeObject<List<Country>>(json);
+                countries.ForEach(c => { c.FlagLink = "/assets/images/" + c.CountryShortCode.ToUpperInvariant()+".png"; });
             }
             return countries;
         }

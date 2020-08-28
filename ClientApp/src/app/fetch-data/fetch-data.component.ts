@@ -8,11 +8,15 @@ import { HttpClient } from '@angular/common/http';
 export class FetchDataComponent {
   public forecasts: WeatherForecast[];
   public countries: Country[];
+  public selectedCountries: Country[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Country[]>(baseUrl + 'Countries').subscribe(result => {
       this.countries = result;
     }, error => console.error(error));
+  }
+  clear(item: Country): void {
+    this.selectedCountries = this.selectedCountries.filter((c) => { return c.countryShortCode != item.countryShortCode });
   }
 }
 
@@ -27,6 +31,7 @@ interface Country {
   countryName: string;
   countryShortCode: string;
   regions: Array<Region>;
+  flagLink: string;
 }
 
 interface Region {

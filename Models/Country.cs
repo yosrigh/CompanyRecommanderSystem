@@ -16,5 +16,6 @@ namespace CompanyRecommanderSystem.Models
 
         [JsonProperty("regions")]
         public List<Region> Regions { get; set; }
+        public string FlagLink { get; set; }
     }
 }
