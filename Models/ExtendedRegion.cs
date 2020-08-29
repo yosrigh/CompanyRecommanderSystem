@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace CompanyRecommanderSystem.Models
 {
-    public class Country
+    public class ExtendedRegion
     {
         public string Name { get; set; }
         public string Code { get; set; }
-        public string FlagLink { get; set; }
+        public string CountryCode { get; set; }
 
-        public Country(string name, string code, string flagLink)
+        public ExtendedRegion(string name, string code, string countryCode)
         {
             Name = name;
             Code = code;
-            FlagLink = flagLink;
+            CountryCode = countryCode;
         }
     }
 }

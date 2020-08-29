@@ -4,35 +4,37 @@
       <div class="form-group col-md-6">
         <label for="inputEmail4">Select one or more countries</label>
         <ng-select [items]="countries"
-                   bindLabel="countryName"
+                   bindLabel="name"
                    [multiple]="true"
                    [(ngModel)]="selectedCountries"
+                   bindValue="code"
+                   placeholder="Example : France"
+                   (change)="filterRegions()"
                    name ="countries">
           <ng-template ng-label-tmp let-item="item">
             <img height="20" width="20" style="margin-right:10px; margin-bottom: 2px;" src="{{item.flagLink}}" />
-            <b>{{item.countryName}}</b>
+            <b>{{item.name}}</b>
             <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
           </ng-template>
           <ng-template ng-option-tmp let-item="item" let-index="index">
-            <img style="margin-right:10px; margin-bottom: 2px;" src="{{item.flagLink}}" width="20" height="20"> {{item.countryName}}
+            <img style="margin-right:10px; margin-bottom: 2px;" src="{{item.flagLink}}" width="20" height="20"> {{item.name}}
           </ng-template>
         </ng-select>
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <ng-select [items]="countries"
+        <label for="inputPassword4">Select one or more regions</label>
+        <ng-select [items]="regions"
+                   bindLabel="name"
+                   groupBy="countryCode"
                    [multiple]="true"
-                   bindLabel="countryName"
+                   [closeOnSelect]="false"
                    [selectableGroup]="true"
                    [selectableGroupAsModel]="false"
-                   [closeOnSelect]="false"
-                   [(ngModel)]="selectedPeople"
-                   name ="regions">
-          <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
-            <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.countryName | uppercase}}
-          </ng-template>
-          <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-            <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.countryName}}
+                   [(ngModel)]="selectedRegions"
+                   name="regions"
+                   placeholder="Example : Île-de-France">
+          <ng-template ng-optgroup-tmp let-item="item">
+            {{item.countryCode || 'Unnamed group'}}
           </ng-template>
         </ng-select>
       </div>
