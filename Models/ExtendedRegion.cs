@@ -10,12 +10,5 @@ namespace CompanyRecommanderSystem.Models
         public string Name { get; set; }
         public string Code { get; set; }
         public string CountryCode { get; set; }
-
-        public ExtendedRegion(string name, string code, string countryCode)
-        {
-            Name = name;
-            Code = code;
-            CountryCode = countryCode;
-        }
     }
 }

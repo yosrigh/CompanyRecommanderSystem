@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { ɵs } from '@ng-select/ng-select';
+import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -30,7 +31,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
-    NgSelectModule
+    NgSelectModule,
+    NgxBootstrapSliderModule
   ],
   providers: [NgSelectConfig,
     ɵs

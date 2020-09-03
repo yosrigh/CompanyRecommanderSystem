@@ -10,7 +10,7 @@
                    bindValue="code"
                    placeholder="Example : France"
                    (change)="filterRegions()"
-                   name ="countries">
+                   name="countries">
           <ng-template ng-label-tmp let-item="item">
             <img height="20" width="20" style="margin-right:10px; margin-bottom: 2px;" src="{{item.flagLink}}" />
             <b>{{item.name}}</b>
@@ -27,7 +27,6 @@
                    bindLabel="name"
                    groupBy="countryCode"
                    [multiple]="true"
-                   [closeOnSelect]="false"
                    [selectableGroup]="true"
                    [selectableGroupAsModel]="false"
                    [(ngModel)]="selectedRegions"
@@ -39,44 +38,112 @@
         </ng-select>
       </div>
     </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <div style="margin-bottom: 15px;">
     </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="mr-sm-2" for="inputMinAge">Age preferences</label>
+        <div class="form-group form-group-sm">
+          <input type="number" class="form-control mx-sm-2 form-control-sm" id="inputMinAge" name="minAgeTxtInput" min="1" step="1" max="{{maxAge}}" [(ngModel)]=minAge placeholder="Min age">
+        </div>
+        <div class="form-group form-group-sm">
+          <input type="number" class="form-control mx-sm-2 form-control-sm" id="inputMaxAge" name="maxAgeTxtInput" step="1" min="{{minAge}}" [(ngModel)]=maxAge placeholder="Max age">
+        </div>
+      </div>
+    </form>
+    <div style="margin-bottom: 15px;">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
+        <label for="inputCity">Category</label>
+        <ng-select [items]="categoriesBuffer"
+                   [virtualScroll]="true"
+                   groupBy="parentCategory"
+                   [multiple]="true"
+                   [loading]="loading"
+                   bindLabel="childCategory"
+                   placeholder="Select category"
+                   (scroll)="onScroll($event)"
+                   (scrollToEnd)="onScrollToEnd()"
+                   [selectableGroup]="true"
+                   [selectableGroupAsModel]="false"
+                   [(ngModel)]="selectedCategories"
+                   name="categories">
+          <ng-template ng-header-tmp>
+            <small class="form-text text-muted">Loaded {{categoriesBuffer.length}} of {{categories.length}} categories</small>
+          </ng-template>
+          <ng-template ng-optgroup-tmp let-item="item">
+            {{item.parentCategory || 'Unnamed group'}}
+          </ng-template>
+        </ng-select>
       </div>
       <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
+        <label for="inputState">Company size</label>
+        <ng-select [items]="companySizeOptions"
+                   bindValue="value"
+                   labelForId="size"
+                   placeholder="Select size"
+                   [(ngModel)]="selectedCompanySize"
+                   name="comanySizeSelectInput">
+        </ng-select>
       </div>
     </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
+    <div style="margin-bottom: 15px;">
+    </div>
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="mr-sm-2">Rank by options</label>
+        <div class="form-group" style="margin-right: 10px;">
+          <ng-select [items]="rankByAgeOptionsInputs"
+                     bindLabel="nested.name"
+                     placeholder="Company age"
+                     [(ngModel)]="selectedRankByAge"
+                     name="selectedRankByAgeInput">
+            <ng-template ng-label-tmp let-item="item">
+              <b>Age {{item.nested.name}}</b>
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group form-group-sm" style="margin-right: 10px;">
+          <ng-select [items]="rankByScoreOptionsInputs"
+                     bindLabel="nested.name"
+                     placeholder="Alpha10x score"
+                     [(ngModel)]="selectedRankByScore"
+                     name="selectedRankByScoreInput">
+            <ng-template ng-label-tmp let-item="item">
+              <b>Alpha10x score {{item.nested.name}}</b>
+            </ng-template>
+          </ng-select>
+        </div>
+        <div class="form-group form-group-sm" style="margin-right: 10px;">
+          <ng-select [items]="rankByRaisedMoneyOptionsInputs"
+                     bindLabel="nested.name"
+                     placeholder="Raised money"
+                     [(ngModel)]="selectedRankByRaisedMoney"
+                     name="selectedRankByRaisedMoneyInput">
+            <ng-template ng-label-tmp let-item="item">
+              <b>Raised money {{item.nested.name}}</b>
+            </ng-template>
+          </ng-select>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+          </ng-template>
+        </div>
+      </div>
+    </form>
+    <div class="form-row">
+      <div class="form-group col-md-10">
+      </div>
+      <div class="form-group col-md-2">
+        <div class='btn-toolbar pull-right'>
+          <div class='btn-group'>
+            <button type='submit' class='btn btn-outline-success' [disabled]="shouldDisableSearchButton()" (click)="onSearchButtonClick()">Search</button>
+          </div>
+        </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
 </div>
-
 <p *ngIf="!countries"><em>Loading...</em></p>
-<img src='/assets/images/TN.png' />
+
 
 

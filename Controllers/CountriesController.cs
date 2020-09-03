@@ -46,7 +46,11 @@ namespace CompanyRecommanderSystem.Controllers
                 {
                     foreach(var region in country.Regions)
                     {
-                        extendedRegions.Add(new ExtendedRegion(region.Name, region.ShortCode, country.CountryName));
+                        var extReg = new ExtendedRegion();
+                        extReg.Name = region.Name;
+                        extReg.Code = region.ShortCode;
+                        extReg.CountryCode = country.CountryName;
+                        extendedRegions.Add(extReg);
                     }
                 }
                 return extendedRegions; 
